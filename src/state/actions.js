@@ -3,6 +3,13 @@ import request from 'superagent';
 import getPrice from './ActionRequests/getPrice';
 
 const actions = {
+    connectToSocket: url => ({
+        type: 'CONNECT',
+        url
+    }),
+    ping: () => ({
+        type: 'PING'
+    }),
     priceError: () => ({
         type: 'PRICE_FAILURE'
     }),

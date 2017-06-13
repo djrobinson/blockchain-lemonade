@@ -9,7 +9,10 @@ class App extends Component {
             <h2>Sams Lemonade Stand</h2>
           </div>
           <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
+            {this.props.test}
+            <button onClick={this.props.testdispatch}>
+              Haldo
+            </button>
           </p>
         </div>
     );

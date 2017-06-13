@@ -1,3 +1,9 @@
-export default (state, props) => {
+import actions from './actions';
 
+export default (dispatch) => {
+  return {
+    testdispatch() {
+      dispatch(actions.testaction());
+    }
+  }
 }

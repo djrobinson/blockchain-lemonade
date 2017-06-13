@@ -1,25 +1,12 @@
-import React, { Component } from 'react';
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-import { Provider } from 'react-redux';
-import thunkMiddleware from 'redux-thunk';
-import createLogger from 'redux-logger';
-import transactionReducer from './state/transactionReducer';
+import React, {PropTypes} from 'react';
 
-import './App.css';
-
-class App extends Component {
-  render() {
+const Transactions = (props) => {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Sams Lemonade Stand</h2>
+        <div className="transactions-block">
+            <h2>Current Price</h2>
+            {props.price}
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
     );
-  }
-}
+};
 
-export default App;
+export default Transactions;

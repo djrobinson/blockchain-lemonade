@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import Transactions from './components/Transactions.jsx';
+
 import './App.css';
 
 class App extends Component {
@@ -10,11 +13,13 @@ class App extends Component {
           </div>
           <p className="App-intro">
             {this.props.test}
-            <button onClick={this.props.testdispatch}>
-              Haldo
-            </button>
           </p>
+          <button onClick={this.props.getPrice}>
+            Haldo
+          </button>
+          <Transactions price={2699.99} />
         </div>
+
     );
   }
 }

@@ -9,7 +9,6 @@ const socketMiddleware = () => {
     //Tell the store we're connected
     // store.dispatch(actions.connected());
     console.log('Websocket Opened', ws);
-    ws.send('{"op":"unconfirmed_sub"}');
 
   }
 
@@ -67,6 +66,7 @@ const socketMiddleware = () => {
       //Send the 'SEND_MESSAGE' action down the websocket to the server
       case 'PING':
         console.log("Sending ping: ", socket);
+        socket.send('{"op":"addr_sub", "addr":"1JWj61zs5a2mpg56oXPePeJ3YMvCZwjvoF"}')
         break;
 
       //This action is irrelevant to us, pass it on to the next middleware

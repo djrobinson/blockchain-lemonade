@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 
 import Transactions from './components/Transactions.jsx';
-import Websockets from './components/Websockets'
-import SampleSocket from './components/Websocket.jsx';
+import AddressForm from './components/AddressForm.jsx';
 
 import './App.css';
+
+const testSubmit = () => {
+  console.log("Testing a submit");
+}
 
 class App extends Component {
   render() {
@@ -13,6 +16,7 @@ class App extends Component {
           <div className="App-header">
             <h2>Sams Lemonade Stand</h2>
           </div>
+          <AddressForm handleSubmit={testSubmit} />
           <p className="App-intro">
             {this.props.test}
           </p>

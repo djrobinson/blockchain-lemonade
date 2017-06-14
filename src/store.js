@@ -3,14 +3,16 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
-import { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer } from 'redux-form';
 import socketMiddleware from './middleware/socketMiddleware.js';
 import actions from './state/actions';
 
 import transactionsReducer from './state/transactionsReducer.js';
+import priceReducer from './state/priceReducer.js';
 
 const rootReducer = combineReducers({
   transactions: transactionsReducer,
+  price: priceReducer,
   form: formReducer
 });
 

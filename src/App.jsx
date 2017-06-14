@@ -19,7 +19,7 @@ class App extends Component {
   }
   addAddress(address) {
     console.log("Address", address);
-    this.props.addAddress(address);
+    this.props.addAddress();
   }
   render() {
     return (
@@ -45,7 +45,13 @@ class App extends Component {
           </Row>
           <Row>
             <Col md={6}>
-              <Addresses address={'1A89gZXgQ1WTs3NC545rUxKf2MVyXGEGnJ'} />
+              {
+                this.props.addresses.map((address) => {
+                  return (
+                    <Addresses address={address} />
+                  );
+                })
+              }
             </Col>
             <Col>
               <Transactions />

@@ -17,7 +17,7 @@ const actions = {
         type: 'PRICE_SUCCESS',
         data
     }),
-    addAddress: data => ({
+    pushAddress: data => ({
         type: 'ADD_ADDRESS',
         data
     })
@@ -48,6 +48,12 @@ const thunks = {
     getAddressbalance: () => {
         return (dispatch, getState) => {
             const requestModel = {};
+        }
+    },
+    addAddress: () => {
+        return (dispatch, getState) => {
+            const address = getState().form.address.values.address1;
+            dispatch(actions.pushAddress(address));
         }
     }
 };

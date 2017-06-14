@@ -20,6 +20,10 @@ const actions = {
     pushAddress: data => ({
         type: 'ADD_ADDRESS',
         data
+    }),
+    subscribeAddress: data => ({
+        type: 'SUBSCRIBE_ADDRESS',
+        data
     })
 };
 
@@ -53,6 +57,7 @@ const thunks = {
     addAddress: () => {
         return (dispatch, getState) => {
             const address = getState().form.address.values.address1;
+            dispatch(actions.subscribeAddress(address));
             dispatch(actions.pushAddress(address));
         }
     }

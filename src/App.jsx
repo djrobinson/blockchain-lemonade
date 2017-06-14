@@ -43,20 +43,20 @@ class App extends Component {
               <Price price={this.props.price} />
             </Col>
           </Row>
-          <Row>
-            <Col md={6}>
-              {
-                this.props.addresses.map((address) => {
-                  return (
+          {
+            this.props.addresses.map((address) => {
+              return (
+                <Row>
+                  <Col md={6}>
                     <Addresses address={address} />
-                  );
-                })
-              }
-            </Col>
-            <Col>
-              <Transactions />
-            </Col>
-          </Row>
+                  </Col>
+                  <Col>
+                    <Transactions address={address} />
+                  </Col>
+                </Row>
+              );
+            })
+          }
         </div>
 
     );

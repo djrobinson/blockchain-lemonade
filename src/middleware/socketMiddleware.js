@@ -64,8 +64,8 @@ const socketMiddleware = () => {
         break;
 
       //Send the 'SEND_MESSAGE' action down the websocket to the server
-      case 'PING':
-        console.log("Sending ping: ", socket);
+      case 'ADD_ADDRESS':
+        console.log("Adding address from middleware", action.data);
         socket.send('{"op":"addr_sub", "addr":"1JWj61zs5a2mpg56oXPePeJ3YMvCZwjvoF"}')
         break;
 

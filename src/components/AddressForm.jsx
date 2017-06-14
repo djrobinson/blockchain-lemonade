@@ -9,7 +9,7 @@ let AddressForm = props => {
         <label htmlFor="address1">Bitcoin Address</label>
         <Field name="address1" component="input" type="text" />
       </div>
-      <button type="submit">Submit</button>
+      <div onClick={handleSubmit}><h3>Submit</h3></div>
     </form>
   )
 }

@@ -16,6 +16,10 @@ const actions = {
     successfulPrice: data => ({
         type: 'PRICE_SUCCESS',
         data
+    }),
+    addAddress: data => ({
+        type: 'ADD_ADDRESS',
+        data
     })
 };
 
@@ -41,6 +45,11 @@ const thunks = {
             fireGet(requestModel);
         };
     },
+    getAddressbalance: () => {
+        return (dispatch, getState) => {
+            const requestModel = {};
+        }
+    }
 };
 
 export default {...actions, ...thunks};

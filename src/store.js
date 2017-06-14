@@ -8,10 +8,12 @@ import socketMiddleware from './middleware/socketMiddleware.js';
 import actions from './state/actions';
 
 import transactionsReducer from './state/transactionsReducer.js';
+import addressesReducer from './state/addressesReducer.js';
 import priceReducer from './state/priceReducer.js';
 
 const rootReducer = combineReducers({
   transactions: transactionsReducer,
+  addresses: addressesReducer,
   price: priceReducer,
   form: formReducer
 });

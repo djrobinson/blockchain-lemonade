@@ -10,6 +10,9 @@ export default (dispatch) => {
     },
     ping() {
       dispatch(actions.ping());
+    },
+    addAddress(data) {
+      dispatch(actions.addAddress(data))
     }
   }
 }

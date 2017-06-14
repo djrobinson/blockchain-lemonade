@@ -8,13 +8,18 @@ import Addresses from './components/Addresses.jsx';
 
 import './App.css';
 
-const testSubmit = () => {
-  console.log("Testing a submit");
-}
-
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.addAddress = this.addAddress.bind(this);
+  }
   componentWillMount() {
     this.props.getPrice();
+  }
+  addAddress(address) {
+    console.log("Address", address);
+    this.props.addAddress(address);
   }
   render() {
     return (
@@ -32,7 +37,7 @@ class App extends Component {
           </div>
           <Row>
             <Col md={6}>
-              <AddressForm handleSubmit={testSubmit} />
+              <AddressForm handleSubmit={this.addAddress} />
             </Col>
             <Col md={6}>
               <Price price={this.props.price} />
@@ -40,7 +45,7 @@ class App extends Component {
           </Row>
           <Row>
             <Col md={6}>
-              <Addresses />
+              <Addresses address={'1A89gZXgQ1WTs3NC545rUxKf2MVyXGEGnJ'} />
             </Col>
             <Col>
               <Transactions />

@@ -16,6 +16,7 @@ class App extends Component {
   }
   componentWillMount() {
     this.props.getPrice();
+    setInterval(() => this.props.getPrice(), 10000);
   }
   addAddress(address) {
     console.log("Address", address);
@@ -29,19 +30,11 @@ class App extends Component {
               <h2>Title</h2>
             </div>
             <div className="App-button">
-              <h5>Generate Wallet</h5>
-            </div>
-            <div className="App-button">
-              <h5>Track Payments</h5>
+              <Price price={this.props.price} />
             </div>
           </div>
           <Row className="control-bar">
-            <Col md={6}>
               <AddressForm handleSubmit={this.addAddress} />
-            </Col>
-            <Col md={6}>
-              <Price price={this.props.price} />
-            </Col>
           </Row>
           {
             this.props.addresses.map((address) => {
@@ -51,7 +44,10 @@ class App extends Component {
                     <Addresses address={address} />
                   </Col>
                   <Col md={8} className="transactions-block" >
-                    <Transactions address={address} transactions={this.props.transactions[address] || []} />
+                    <Transactions
+                      transactions={this.props.transactions[address] || []}
+                      price={this.props.price}
+                    />
                   </Col>
                 </Row>
               );

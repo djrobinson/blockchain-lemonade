@@ -15,7 +15,16 @@ const rootReducer = combineReducers({
   transactions: transactionsReducer,
   addresses: addressesReducer,
   price: priceReducer,
-  form: formReducer
+  form: formReducer.plugin({
+    address: (state, action) => {
+      switch(action.type) {
+        case 'SUBSCRIBE_ADDRESS':
+          return undefined;
+        default:
+          return state;
+      }
+    }
+  })
 });
 
 const middleware = [ thunk, socketMiddleware() ];

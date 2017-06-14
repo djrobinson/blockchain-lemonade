@@ -13,6 +13,9 @@ export default (dispatch) => {
     },
     addAddress(data) {
       dispatch(actions.addAddress(data))
+    },
+    sendTestTransaction() {
+      dispatch(actions.sendTestTransaction());
     }
   }
 }

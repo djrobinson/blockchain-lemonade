@@ -21,10 +21,11 @@ const socketMiddleware = () => {
     //Parse the JSON message received on the websocket
     var msg = JSON.parse(evt.data);
     console.log("Message: ", msg);
-    switch(msg.type) {
-      case "CHAT_MESSAGE":
+    switch(msg.op) {
+      case "utx":
         //Dispatch an action that adds the received message to our state
         console.log('Websocket Opened');
+        store.dispatch(actions.receivedTransaction(msg.x));
         break;
       default:
         console.log("Received unknown message type: ");
@@ -64,10 +65,14 @@ const socketMiddleware = () => {
         break;
 
       //Send the 'SEND_MESSAGE' action down the websocket to the server
-      case 'ADD_ADDRESS':
-        console.log("Adding address from middleware", action.data);
-        socket.send('{"op":"addr_sub", "addr":"1JWj61zs5a2mpg56oXPePeJ3YMvCZwjvoF"}')
+      case 'PING':
+        console.log("Ping");
+        socket.send('{"op":"ping"}');
         break;
+      case 'SUBSCRIBE_ADDRESS':
+        console.log("Adding address from middleware", action.data);
+        socket.send('{"op":"addr_sub", "addr":"'+ action.data + '"}')
+        return next(action);
 
       //This action is irrelevant to us, pass it on to the next middleware
       default:

@@ -2,6 +2,8 @@ import request from 'superagent';
 
 import getPrice from './ActionRequests/getPrice';
 
+import mocktransaction from './mockdata/mocktransaction.js';
+
 const actions = {
     connectToSocket: url => ({
         type: 'CONNECT',
@@ -17,12 +19,12 @@ const actions = {
         type: 'PRICE_SUCCESS',
         data
     }),
-    pushAddress: data => ({
-        type: 'ADD_ADDRESS',
-        data
-    }),
     subscribeAddress: data => ({
         type: 'SUBSCRIBE_ADDRESS',
+        data
+    }),
+    receivedTransaction: data => ({
+        type: 'RECEIVED_TRANSACTION',
         data
     })
 };
@@ -42,6 +44,8 @@ const firePost = (requestModel) => {
         .end(requestModel.requestEnd);
 };
 
+let mockIterator = 0;
+
 const thunks = {
     getPrice: () => {
         return (dispatch, getState) => {
@@ -58,7 +62,12 @@ const thunks = {
         return (dispatch, getState) => {
             const address = getState().form.address.values.address1;
             dispatch(actions.subscribeAddress(address));
-            dispatch(actions.pushAddress(address));
+        }
+    },
+    sendTestTransaction: () => {
+        return (dispatch) => {
+            dispatch(actions.receivedTransaction(mocktransaction[mockIterator]));
+            mockIterator++;
         }
     }
 };

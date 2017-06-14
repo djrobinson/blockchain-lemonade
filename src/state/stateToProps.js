@@ -1,7 +1,7 @@
 export default (state, props) => {
   console.log('State: ', state);
   return {
-    test: state.transactions.test,
+    transactions: state.transactions,
     price: state.price,
     addresses: state.addresses
   }

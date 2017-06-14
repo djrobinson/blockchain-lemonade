@@ -3,10 +3,24 @@
 }
 
 .App-header {
+  position: relative;
   background-color: #222;
   height: 80px;
-  padding: 20px;
   color: white;
+}
+
+.App-title {
+  height: 80px;
+  padding-left: 60px;
+  float: left;
+  display: inline-flex;
+  align-content: center;
+}
+
+.App-button {
+  display: inline-block;
+  float: right;
+  padding: 15px;
 }
 
 .App-intro {

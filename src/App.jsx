@@ -14,12 +14,18 @@ class App extends Component {
     return (
         <div className="App">
           <div className="App-header">
-            <h2>Sams Lemonade Stand</h2>
+            <div className="App-title">
+              <h2>Sams Lemonade Stand</h2>
+            </div>
+            <div className="App-button">
+              <h5>Generate Wallet</h5>
+            </div>
+            <div className="App-button">
+              <h5>Track Payments</h5>
+            </div>
           </div>
           <AddressForm handleSubmit={testSubmit} />
-          <p className="App-intro">
-            {this.props.test}
-          </p>
+          <img src="https://chart.googleapis.com/chart?chs=250x250&cht=qr&chl=1EtWbeb6k8FDHPQufFxtSXSR89XhebYPYh" />
           <button onClick={this.props.ping}>
             Haldo
           </button>

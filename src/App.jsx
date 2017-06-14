@@ -26,7 +26,7 @@ class App extends Component {
         <div className="App">
           <div className="App-header">
             <div className="App-title">
-              <h2>Sams Lemonade Stand</h2>
+              <h2>Title</h2>
             </div>
             <div className="App-button">
               <h5>Generate Wallet</h5>
@@ -35,7 +35,7 @@ class App extends Component {
               <h5>Track Payments</h5>
             </div>
           </div>
-          <Row>
+          <Row className="control-bar">
             <Col md={6}>
               <AddressForm handleSubmit={this.addAddress} />
             </Col>
@@ -46,11 +46,11 @@ class App extends Component {
           {
             this.props.addresses.map((address) => {
               return (
-                <Row key={address} >
-                  <Col md={6}>
+                <Row key={address} className="address-row" >
+                  <Col md={4} className="address-block" >
                     <Addresses address={address} />
                   </Col>
-                  <Col>
+                  <Col md={8} className="transactions-block" >
                     <Transactions address={address} transactions={this.props.transactions[address] || []} />
                   </Col>
                 </Row>

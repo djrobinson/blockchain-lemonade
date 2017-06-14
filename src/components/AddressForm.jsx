@@ -4,13 +4,13 @@ import { Field, reduxForm } from 'redux-form'
 let AddressForm = props => {
   const { handleSubmit } = props;
   return (
-    <form onSubmit={ handleSubmit }>
-      <div>
-        <label htmlFor="address1">Bitcoin Address</label>
-        <Field name="address1" component="input" type="text" />
-      </div>
-      <div onClick={handleSubmit}><h3>Submit</h3></div>
-    </form>
+    <div className="address-form-block">
+      <form onSubmit={ handleSubmit }>
+          <label htmlFor="address1" className="input-label">Add a Bitcoin Address to Monitor:</label>
+          <Field name="address1" className="address-input" component="input" type="text" />
+          <div className="submit-address" onClick={handleSubmit}>Submit</div>
+      </form>
+    </div>
   )
 }
 

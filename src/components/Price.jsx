@@ -2,9 +2,8 @@ import React from 'react';
 
 const Price = props => {
   return (
-    <div>
-        <h2>Price</h2>
-        <h1>{props.price}</h1>
+    <div className="price-block">
+        <h2>Bitcoin Price: ${props.price}</h2>
     </div>
   )
 }

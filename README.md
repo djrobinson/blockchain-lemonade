@@ -9,11 +9,13 @@ npm i
 npm start
 ```
 
+And your page will be served at http://localhost:3000
+
 ## Features
 * Regularly updating Bitcoin price in USD
 * Websocket subscription to new transactions for a given address from [Blockchain.info](https://blockchain.info/api/api_websocket)
 * Ability to add multiple addresses
-* Tracking of transaction time and sender
+* Tracking of transaction time & data
 * Conversion & update of transaction price
 
 ## Tech used

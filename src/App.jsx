@@ -25,37 +25,37 @@ class App extends Component {
   render() {
     return (
         <div className="App">
-          <div className="App-header">
-            <div className="App-title">
-              <h2>Title</h2>
-            </div>
-            <div className="App-button">
-              <Price price={this.props.price} />
-            </div>
-          </div>
+          <Row className="App-header">
+            <Col lg={6} className="App-title">
+              <h2>Sams Lemonade Stand</h2>
+            </Col>
+            <Col lg={6}>
+              <div className="App-button">
+                <Price price={this.props.price} />
+              </div>
+            </Col>
+          </Row>
           <Row className="control-bar">
               <AddressForm handleSubmit={this.addAddress} />
           </Row>
-          {
-            this.props.addresses.map((address) => {
-              return (
-                <Row key={address} className="address-row" >
-                  <Col md={4} className="address-block" >
+          <div onClick={this.props.sendTestTransaction}>
+            Test Transaction
+          </div>
+          <Row className="address-row" >
+            {
+              this.props.addresses.map((address) => {
+                return (
+                  <Col lg={4} key={address} >
                     <Addresses address={address} />
-                  </Col>
-                  <Col md={8} className="transactions-block" >
                     <Transactions
                       transactions={this.props.transactions[address] || []}
                       price={this.props.price}
                     />
                   </Col>
-                </Row>
-              );
-            })
-          }
-          <div onClick={this.props.sendTestTransaction}>
-            Test Transaction
-          </div>
+                );
+              })
+            }
+          </Row>
         </div>
 
     );

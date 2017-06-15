@@ -1,16 +1,22 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
+import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { Col, Row } from 'react-bootstrap';
+
 
 let AddressForm = props => {
   const { handleSubmit } = props;
   return (
-    <div className="address-form-block">
       <form onSubmit={ handleSubmit }>
-          <label htmlFor="address1" className="input-label">Add a Bitcoin Address to Monitor:</label>
+        <Col lg={5} className="form-box">
+          <label htmlFor="address1" className="input-label">Add a Bitcoin address to begin tracking payments:</label>
+        </Col>
+        <Col lg={5} className="form-box">
           <Field name="address1" className="address-input" component="input" type="text" />
+        </Col>
+        <Col lg={2} className="form-box">
           <div className="submit-address" onClick={handleSubmit}>Submit</div>
+        </Col>
       </form>
-    </div>
   )
 }
 

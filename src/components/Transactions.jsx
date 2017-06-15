@@ -1,18 +1,22 @@
 import React from 'react';
 import Moment from 'moment';
+import { Col, Row } from 'react-bootstrap';
 
 const Transactions = props => {
   return (
-    <div className="transactions-row">
+    <div className="transactions-column">
         {
             props.transactions.map(transaction => {
                 return (
-                    <div className="transaction" key={transaction.hash} >
+                    <Row className="transaction" key={transaction.hash} >
+                      <Col lg={6} className="full-height">
                         <p>{Moment.unix(transaction.time).format('LLL')}</p>
-                        <h4>Transaction Amount</h4>
-                        <h2>{transaction.out[0].value / 100000000} BTC</h2>
-                        <h2>${(transaction.out[0].value / 100000000 * props.price).toFixed(2)}</h2>
-                    </div>
+                      </Col>
+                      <Col lg={6} className="full-height">
+                        <h4>{transaction.out[0].value / 100000000} BTC</h4>
+                        <h4>${(transaction.out[0].value / 100000000 * props.price).toFixed(2)}</h4>
+                      </Col>
+                    </Row>
                 )
             })
         }

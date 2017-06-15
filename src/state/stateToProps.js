@@ -3,6 +3,7 @@ export default (state, props) => {
   return {
     transactions: state.transactions,
     price: state.price,
-    addresses: state.addresses
+    addresses: state.addresses,
+    error: state.error
   }
 }

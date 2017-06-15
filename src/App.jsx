@@ -37,8 +37,20 @@ class App extends Component {
           </Row>
           <Row className="control-bar">
               <AddressForm handleSubmit={this.addAddress} />
+              {
+                (this.props.error === 'ADDRESS_EXISTS') && (
+                    <h4>Address subscription already exists</h4>
+                )
+              }
+              {
+                (this.props.error === 'NULL_ADDRESS') && (
+                    <h4>Please enter an address</h4>
+                )
+              }
           </Row>
+          <Row>
 
+          </Row>
           <Row className="addresses-title">
             <h3>Subscribed Addresses:</h3>
           </Row>

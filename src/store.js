@@ -10,11 +10,13 @@ import actions from './state/actions';
 import transactionsReducer from './state/reducers/transactionsReducer.js';
 import addressesReducer from './state/reducers/addressesReducer.js';
 import priceReducer from './state/reducers/priceReducer.js';
+import errorReducer from './state/reducers/errorReducer.js';
 
 const rootReducer = combineReducers({
   transactions: transactionsReducer,
   addresses: addressesReducer,
   price: priceReducer,
+  error: errorReducer,
   form: formReducer.plugin({
     address: (state, action) => {
       switch(action.type) {

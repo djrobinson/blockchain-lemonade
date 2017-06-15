@@ -13,7 +13,7 @@ npm start
 * Regularly updating Bitcoin price in USD
 * Websocket subscription to new transactions for a given address from [Blockchain.info](https://blockchain.info/api/api_websocket)
 * Ability to add multiple addresses
-* Tracking of transaction time, sender, and
+* Tracking of transaction time and sender
 * Conversion & update of transaction price
 
 ## Tech used

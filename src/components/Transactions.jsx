@@ -9,18 +9,13 @@ const Transactions = props => {
             props.transactions.map(transaction => {
                 return (
                     <Row className="transaction" key={transaction.hash} >
-                      <Row>
-                        <Col lg={6} className="time-box">
-                          <p>{Moment.unix(transaction.time).format('lll')}</p>
-                        </Col>
-                        <Col lg={6} >
-                          <h4>{transaction.out[0].value / 100000000} BTC</h4>
-                          <h4>${(transaction.out[0].value / 100000000 * props.price).toFixed(2)}</h4>
-                        </Col>
-                      </Row>
-                      <Row>
-                        <p>From: {transaction.inputs[0].prev_out.addr}</p>
-                      </Row>
+                      <Col lg={6} className="time-box">
+                        <p>{Moment.unix(transaction.time).format('lll')}</p>
+                      </Col>
+                      <Col lg={6} >
+                        <h4>{transaction.out[0].value / 100000000} BTC</h4>
+                        <h4>${(transaction.out[0].value / 100000000 * props.price).toFixed(2)}</h4>
+                      </Col>
                     </Row>
                 )
             })

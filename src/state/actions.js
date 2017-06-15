@@ -9,6 +9,12 @@ const actions = {
         type: 'CONNECT',
         url
     }),
+    addressNullError: () => ({
+        type: 'NULL_ADDRESS'
+    }),
+    addressExistsError: () => ({
+        type: 'ADDRESS_EXISTS'
+    }),
     ping: () => ({
         type: 'PING'
     }),
@@ -36,14 +42,7 @@ const fireGet = (requestModel) => {
         .end(requestModel.requestEnd);
 };
 
-const firePost = (requestModel) => {
-    request
-        .post(requestModel.postRoute)
-        .send(requestModel.postModel)
-        .set('Accept', 'application/json')
-        .end(requestModel.requestEnd);
-};
-
+//For testing purposes only
 let mockIterator = 0;
 
 const thunks = {
@@ -62,11 +61,18 @@ const thunks = {
         return (dispatch, getState) => {
             const currentAddresses = getState().addresses;
             const address = getState().form.address;
-            if (address && address.values && currentAddresses.indexOf(address.values.address1) === -1) {
-                dispatch(actions.subscribeAddress(address.values.address1));
+            if (!address || !address.values) {
+                dispatch(actions.addressNullError());
+                return;
             }
+            if (currentAddresses.indexOf(address.values.address1) !== -1) {
+                dispatch(actions.addressExistsError());
+                return;
+            }
+            dispatch(actions.subscribeAddress(address.values.address1));
         }
     },
+    //For testing purposes only
     sendTestTransaction: () => {
         return (dispatch) => {
             dispatch(actions.receivedTransaction(mocktransaction[mockIterator]));

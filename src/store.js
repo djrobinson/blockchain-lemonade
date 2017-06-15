@@ -7,9 +7,9 @@ import { reducer as formReducer } from 'redux-form';
 import socketMiddleware from './middleware/socketMiddleware.js';
 import actions from './state/actions';
 
-import transactionsReducer from './state/transactionsReducer.js';
-import addressesReducer from './state/addressesReducer.js';
-import priceReducer from './state/priceReducer.js';
+import transactionsReducer from './state/reducers/transactionsReducer.js';
+import addressesReducer from './state/reducers/addressesReducer.js';
+import priceReducer from './state/reducers/priceReducer.js';
 
 const rootReducer = combineReducers({
   transactions: transactionsReducer,

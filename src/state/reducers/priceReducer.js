@@ -3,5 +3,9 @@ export default (state = null, action) => {
     const price = action.data.USD.last;
     return price;
   }
+  if (action.type === 'PRICE_FAILURE') {
+    const price = 'N/A';
+    return price;
+  }
   return state;
 }

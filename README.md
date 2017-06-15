@@ -2,5 +2,27 @@
 
 ## Overview
 
-This application creates a simple UI for tracking Bitcoin payments to a given address. Users will be able to enter an address and track transactions as they are confirmed by the bitcoin network.
+This application creates a simple UI for tracking Bitcoin payments to a list of provided addresses. To get started, clone this repo and run:
+
+```javascript
+npm i
+npm start
+```
+
+## Features
+* Regularly updating Bitcoin price in USD
+* Websocket subscription to new transactions for a given address from [Blockchain.info](https://blockchain.info/api/api_websocket)
+* Ability to add multiple addresses
+* Tracking of transaction time, sender, and
+* Conversion & update of transaction price
+
+## Techs used
+* React
+* Redux
+* Websockets
+
+## Todos
+* Add ability to create new receiving addresses with the [Blockchain.info](https://blockchain.info/api/api_receive) API or find a workaround with [Blockonomics](https://www.blockonomics.co/views/api.html)
+
+![site picture](https://raw.githubusercontent.com/djrobinson/blockchain-lemonade/master/public//payment-tracker.png "Bitcoin Lemonade")
 

@@ -8,7 +8,7 @@ let AddressForm = props => {
   return (
       <form onSubmit={ handleSubmit }>
         <Col lg={5} className="form-box">
-          <label htmlFor="address1" className="input-label">Add a Bitcoin address to begin tracking payments:</label>
+          <label htmlFor="address1" className="input-label">Add a receiving address to begin tracking payments:</label>
         </Col>
         <Col lg={5} className="form-box">
           <Field name="address1" className="address-input" component="input" type="text" />

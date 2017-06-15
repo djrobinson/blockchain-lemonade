@@ -60,8 +60,11 @@ const thunks = {
     },
     addAddress: () => {
         return (dispatch, getState) => {
-            const address = getState().form.address.values.address1;
-            dispatch(actions.subscribeAddress(address));
+            const currentAddresses = getState().addresses;
+            const address = getState().form.address;
+            if (address && address.values && currentAddresses.indexOf(address.values.address1) === -1) {
+                dispatch(actions.subscribeAddress(address.values.address1));
+            }
         }
     },
     sendTestTransaction: () => {

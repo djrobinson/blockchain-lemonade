@@ -57,9 +57,6 @@ class App extends Component {
               })
             }
           </Row>
-          <div onClick={this.props.sendTestTransaction}>
-            Test Transaction
-          </div>
         </div>
 
     );

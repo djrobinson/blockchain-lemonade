@@ -16,7 +16,7 @@ npm start
 * Tracking of transaction time, sender, and
 * Conversion & update of transaction price
 
-## Techs used
+## Tech used
 * React
 * Redux
 * Websockets
